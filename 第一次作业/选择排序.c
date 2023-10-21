@@ -18,7 +18,7 @@ int disp(int arr[], int size) {
 
 int recursiveSelectionSort(int arr[], int n, int index) {
     if (index >= n - 1) {
-        return; // 基本情况，只有一个元素或已经排序完
+        return 0; // 基本情况，只有一个元素或已经排序完
     }
 
     int minIndex = index;
