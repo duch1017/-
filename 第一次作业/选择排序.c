@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// ��������Ԫ�صĺ���
+// 交换两个元素的函数
 int swap(int *x, int *y) {
     int temp = *x;
     *x = *y;
@@ -8,7 +8,7 @@ int swap(int *x, int *y) {
     return 0;
 }
 
-//��ӡ����Ԫ��
+//打印数组元素
 int disp(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         printf("%d\t", arr[i]);
@@ -16,17 +16,24 @@ int disp(int arr[], int size) {
     return 0;
 }
 
-int selectionSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        int minIndex = i;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j;
-            }
-        }
-        // ������СԪ���뵱ǰλ��Ԫ��
-        swap(&arr[minIndex], &arr[i]);
+int recursiveSelectionSort(int arr[], int n, int index) {
+    if (index >= n - 1) {
+        return; // 基本情况，只有一个元素或已经排序完
     }
+
+    int minIndex = index;
+    // 查找未排序部分的最小元素
+    for (int i = index + 1; i < n; i++) {
+        if (arr[i] < arr[minIndex]) {
+            minIndex = i;
+        }
+    }
+
+    // 将最小元素移到排序部分
+    swap(&arr[index], &arr[minIndex]);
+
+    // 对下一个位置进行递归排序
+    recursiveSelectionSort(arr, n, index + 1);
     return 0;
 }
 
@@ -36,7 +43,7 @@ int main() {
 
     printf("Original Array: ");
     disp(arr, n);
-    selectionSort(arr, n);
+    recursiveSelectionSort(arr, n, 0);
 
     printf("\nSorted Array: ");
     disp(arr, n);
