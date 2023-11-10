@@ -1,20 +1,20 @@
 #include <stdio.h>
 
 void findMaxAndSecondMax(int arr[], int n) {
-    int max1 = arr[0]; // ç”¨äºå­˜å‚¨æœ€å¤§å…ƒç´ 
-    int max2 = arr[0]; // ç”¨äºå­˜å‚¨æ¬¡å¤§å…ƒç´ 
+    int max1 = arr[0]; // ÓÃÓÚ´æ´¢×î´óÔªËØ
+    int max2 = arr[0]; // ÓÃÓÚ´æ´¢´Î´óÔªËØ
 
     for (int i = 1; i < n; i++) {
         if (arr[i] > max1) {
-            max2 = max1; // å½“é‡åˆ°æ›´å¤§çš„å…ƒç´ æ—¶ï¼Œå°†ä¹‹å‰çš„æœ€å¤§å…ƒç´ èµ‹å€¼ç»™æ¬¡å¤§å…ƒç´ 
-            max1 = arr[i]; // æ›´æ–°æœ€å¤§å…ƒç´ 
+            max2 = max1; // µ±Óöµ½¸ü´óµÄÔªËØÊ±£¬½«Ö®Ç°µÄ×î´óÔªËØ¸³Öµ¸ø´Î´óÔªËØ
+            max1 = arr[i]; // ¸üĞÂ×î´óÔªËØ
         } else if (arr[i] > max2 && arr[i] != max1) {
-            max2 = arr[i]; // æ›´æ–°æ¬¡å¤§å…ƒç´ 
+            max2 = arr[i]; // ¸üĞÂ´Î´óÔªËØ
         }
     }
 
-    printf("æœ€å¤§å…ƒç´ : %d\n", max1);
-    printf("æ¬¡å¤§å…ƒç´ : %d\n", max2);
+    printf("×î´óÔªËØ: %d\n", max1);
+    printf("´Î´óÔªËØ: %d\n", max2);
 }
 
 int main() {

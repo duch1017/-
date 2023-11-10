@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 // 合并两个子数组的函数
-void merge(int arr[], int left, int middle, int right) {
-    int n1 = middle - left + 1;
-    int n2 = right - middle;
+void merge(int arr[], int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
 
     int L[n1], R[n2];
 
@@ -11,7 +11,7 @@ void merge(int arr[], int left, int middle, int right) {
         L[i] = arr[left + i];
     }
     for (int i = 0; i < n2; i++) {
-        R[i] = arr[middle + 1 + i];
+        R[i] = arr[mid + 1 + i];
     }
 
     int i = 0, j = 0, k = left;
@@ -42,14 +42,14 @@ void merge(int arr[], int left, int middle, int right) {
 // 归并排序函数
 void mergeSort(int arr[], int left, int right) {
     if (left < right) {
-        int middle = left + (right - left) / 2;
+        int mid = left + (right - left) / 2;
 
         // 递归排序左侧和右侧子数组
-        mergeSort(arr, left, middle);
-        mergeSort(arr, middle + 1, right);
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
 
         // 合并两个子数组
-        merge(arr, left, middle, right);
+        merge(arr, left, mid, right);
     }
 }
 
